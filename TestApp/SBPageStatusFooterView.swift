@@ -13,33 +13,36 @@ struct SBPageStatusFooterView: View {
     var didTapDismissText: () -> Void
     
     var body: some View {
-        VStack(alignment: .leading) {
-            if containingInList == .whiteList {
+        if containingInList == .whiteList {
+            VStack(alignment: .leading) {
                 Text(containingInList.descriptionText)
-                Label {
-                    Text("CỐC CỐC ĐÃ XÁC THỰC")
-                        .foregroundColor(containingInList.themeColor)
-                        .fontWeight(.semibold)
-                } icon: {
-                    Image("guardIcon")
-                        .frame(width: 14, height: 14)
-                }
-                .padding(6)
-                .overlay {
-                    RoundedRectangle(cornerRadius: 8)
-                        .stroke(
-                            containingInList.themeColor.opacity(0.3),
-                            lineWidth: 2)
+                if #available(iOS 15.0, *) {
+                    Label {
+                        Text("CỐC CỐC ĐÃ XÁC THỰC")
+                            .foregroundColor(containingInList.themeColor)
+                            .fontWeight(.semibold)
+                    } icon: {
+                        Image("guardIcon")
+                            .frame(width: 14, height: 14)
+                    }
+                    .padding(6)
+                    .overlay {
+                        RoundedRectangle(cornerRadius: 8)
+                            .stroke(
+                                containingInList.themeColor.opacity(0.3),
+                                lineWidth: 2)
+                    }
+                } else {
+                    Image("sb_verified_page")
                 }
             }
-            else {
-                Group {
-                    Text(containingInList.descriptionText) +
-                    Text(" Ẩn cảnh báo này")
-                        .foregroundColor(containingInList.themeColor)
-                }
-                .onTapGesture(perform: didTapDismissText)
+        } else {
+            Group {
+                Text(containingInList.descriptionText) +
+                Text(" Ẩn cảnh báo này")
+                    .foregroundColor(containingInList.themeColor)
             }
+            .onTapGesture(perform: didTapDismissText)
         }
     }
 }

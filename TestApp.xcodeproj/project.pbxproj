@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		FA3B1223285352B200AEC0E0 /* NewFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3B1222285352B200AEC0E0 /* NewFile.swift */; };
 		FA59EB72286D52E50085B455 /* SBModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA59EB71286D52E50085B455 /* SBModels.swift */; };
 		FA59EB74286D88B20085B455 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA59EB73286D88B20085B455 /* String+.swift */; };
 		FA665414286AAFE500EC4514 /* SBConnectionStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA665413286AAFE500EC4514 /* SBConnectionStatusView.swift */; };
@@ -18,24 +17,21 @@
 		FAA74FB52834E7730047AC2B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAA74FB42834E7730047AC2B /* Assets.xcassets */; };
 		FAA74FB82834E7730047AC2B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAA74FB72834E7730047AC2B /* Preview Assets.xcassets */; };
 		FAB109BF286441A40098B1E2 /* SafeBrowsingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB109BE286441A40098B1E2 /* SafeBrowsingView.swift */; };
-		FABC50F1283E100C00B94567 /* WebImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABC50F0283E100C00B94567 /* WebImageView.swift */; };
-		FABC50F6283E1E1800B94567 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = FABC50F5283E1E1800B94567 /* SDWebImageSwiftUI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		FA3B1222285352B200AEC0E0 /* NewFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewFile.swift; sourceTree = "<group>"; };
 		FA59EB71286D52E50085B455 /* SBModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SBModels.swift; path = ../../SBModels.swift; sourceTree = "<group>"; };
 		FA59EB73286D88B20085B455 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		FA665413286AAFE500EC4514 /* SBConnectionStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBConnectionStatusView.swift; sourceTree = "<group>"; };
 		FA925306286C4BFE00EE457F /* SBPageStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBPageStatusView.swift; sourceTree = "<group>"; };
 		FA925308286C668800EE457F /* SBPageStatusFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBPageStatusFooterView.swift; sourceTree = "<group>"; };
+		FAA6B9DD286EE8FE00D35CE1 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		FAA74FAD2834E7700047AC2B /* TestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAA74FB02834E7700047AC2B /* TestAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAppApp.swift; sourceTree = "<group>"; };
 		FAA74FB22834E7700047AC2B /* VerticalSearchSuggestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalSearchSuggestionView.swift; sourceTree = "<group>"; };
 		FAA74FB42834E7730047AC2B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FAA74FB72834E7730047AC2B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		FAB109BE286441A40098B1E2 /* SafeBrowsingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafeBrowsingView.swift; sourceTree = "<group>"; };
-		FABC50F0283E100C00B94567 /* WebImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebImageView.swift; sourceTree = "<group>"; };
 		FABC50F3283E131A00B94567 /* SDWebImageSwiftUI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = SDWebImageSwiftUI; path = ../SDWebImageSwiftUI; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -44,7 +40,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FABC50F6283E1E1800B94567 /* SDWebImageSwiftUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,16 +67,15 @@
 		FAA74FAF2834E7700047AC2B /* TestApp */ = {
 			isa = PBXGroup;
 			children = (
-				FA3B1222285352B200AEC0E0 /* NewFile.swift */,
 				FAA74FB02834E7700047AC2B /* TestAppApp.swift */,
 				FAB109BE286441A40098B1E2 /* SafeBrowsingView.swift */,
+				FAA6B9DD286EE8FE00D35CE1 /* TestView.swift */,
 				FA59EB71286D52E50085B455 /* SBModels.swift */,
 				FA59EB73286D88B20085B455 /* String+.swift */,
 				FA925308286C668800EE457F /* SBPageStatusFooterView.swift */,
 				FA925306286C4BFE00EE457F /* SBPageStatusView.swift */,
 				FA665413286AAFE500EC4514 /* SBConnectionStatusView.swift */,
 				FAA74FB22834E7700047AC2B /* VerticalSearchSuggestionView.swift */,
-				FABC50F0283E100C00B94567 /* WebImageView.swift */,
 				FAA74FB42834E7730047AC2B /* Assets.xcassets */,
 				FAA74FB62834E7730047AC2B /* Preview Content */,
 			);
@@ -128,7 +122,6 @@
 			);
 			name = TestApp;
 			packageProductDependencies = (
-				FABC50F5283E1E1800B94567 /* SDWebImageSwiftUI */,
 			);
 			productName = TestApp;
 			productReference = FAA74FAD2834E7700047AC2B /* TestApp.app */;
@@ -189,9 +182,7 @@
 				FA59EB74286D88B20085B455 /* String+.swift in Sources */,
 				FA665414286AAFE500EC4514 /* SBConnectionStatusView.swift in Sources */,
 				FAA74FB32834E7700047AC2B /* VerticalSearchSuggestionView.swift in Sources */,
-				FABC50F1283E100C00B94567 /* WebImageView.swift in Sources */,
 				FA59EB72286D52E50085B455 /* SBModels.swift in Sources */,
-				FA3B1223285352B200AEC0E0 /* NewFile.swift in Sources */,
 				FAA74FB12834E7700047AC2B /* TestAppApp.swift in Sources */,
 				FA925309286C668800EE457F /* SBPageStatusFooterView.swift in Sources */,
 			);
@@ -330,7 +321,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -360,7 +351,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -396,13 +387,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		FABC50F5283E1E1800B94567 /* SDWebImageSwiftUI */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = SDWebImageSwiftUI;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = FAA74FA52834E7700047AC2B /* Project object */;
 }

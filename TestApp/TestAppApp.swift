@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import UIKit
 
 @main
 struct TestAppApp: App {
@@ -15,7 +16,13 @@ struct TestAppApp: App {
             UIHostingController(rootView: EmptyView())
                 .rootView.sheet(isPresented: $presented) {
                     SafeBrowsingView(pageModel: SBModel(item: sampleItem))
+                }.onAppear {
+                    setupAppearance()
                 }
         }
+    }
+    
+    func setupAppearance() {
+        UIView.appearance(whenContainedInInstancesOf: [UIAlertController.self]).tintColor = UIColor.green
     }
 }

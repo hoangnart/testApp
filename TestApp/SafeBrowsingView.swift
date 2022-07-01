@@ -11,6 +11,7 @@ struct SafeBrowsingView: View {
     @Environment(\.presentationMode) var presentationMode
     
     @State private var isOn = false
+    @State private var showingAlert = false
     @StateObject var pageModel: SBModel
 
     var body: some View {
@@ -43,17 +44,19 @@ struct SafeBrowsingView: View {
                     pageModel.shouldShowFullUrl.toggle()
                 })
                 
+                //MARK: Page Status View
                 if pageModel.shouldShowPageStatus {
                     Section {
                         SBPageStatusView(containingInList: pageModel.item.containedInList)
                             .listRowBackground(pageModel.item.containedInList.themeColor.opacity(0.1))
                     } footer: {
                         SBPageStatusFooterView(containingInList: pageModel.item.containedInList, didTapDismissText: {
-                            print("Anything")
+                            self.showingAlert = true
                         })
                     }
                 }
                 
+                //MARK: Connection Status View
                 if pageModel.shouldShowConnectionStatus {
                     Section {
                         SBConnectionStatusView(
@@ -69,6 +72,7 @@ struct SafeBrowsingView: View {
                     }
                 }
                 
+                //MARK: Ads Block
                 Section {
                     Toggle(isOn: $isOn) {
                         Label {
@@ -89,6 +93,7 @@ struct SafeBrowsingView: View {
                 }
                 .padding(6)
             }
+            .labelStyle(CentreAlignedLabelStyle())
             .listStyle(.insetGrouped)
             .navigationTitle(pageModel.headerTitle)
             .navigationBarTitleDisplayMode(.inline)
@@ -102,8 +107,19 @@ struct SafeBrowsingView: View {
                             Text("Xong")
                                 .foregroundColor(Color.green)
                                 .font(Font.headline.bold())
-                        })
+                        }
+                    )
             )
+            .alert(isPresented: $showingAlert) {
+                Alert(
+                    title: Text("Bạn có muốn ẩn cảnh báo trên trang này?"),
+                    message: Text("Nếu bạn chọn ẩn cảnh báo, chúng tôi sẽ không hiện lại cảnh báo trên trang web này nữa."),
+                    primaryButton: .destructive(Text("Ẩn cảnh báo trên trang này")),
+                    secondaryButton: .cancel(Text("Không ẩn cảnh báo")
+                        .foregroundColor(Color.green)))
+                
+                //dismissButton: .default(Text("Không ẩn cảnh báo").foregroundColor(Color.green))
+            }
         }
     }
 }
@@ -166,5 +182,21 @@ class SBModel: ObservableObject {
     init(item: SBItem) {
         self.item = item
         self.shouldShowFullUrl = item.pageType.defaultShowFullUrl
+    }
+}
+
+struct CentreAlignedLabelStyle: LabelStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        Label {
+            configuration.title
+                .alignmentGuide(.firstTextBaseline) {
+                    $0[VerticalAlignment.center]
+                }
+        } icon: {
+            configuration.icon
+                .alignmentGuide(.firstTextBaseline) {
+                    $0[VerticalAlignment.center]
+                }
+        }
     }
 }
