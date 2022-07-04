@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "[Button] Icon Toggle.png",
+      "filename" : "ccbr_sb_ads_block_icon.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "[Button] Icon Toggle@2x.png",
+      "filename" : "ccbr_sb_ads_block_icon@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "[Button] Icon Toggle@3x.png",
+      "filename" : "ccbr_sb_ads_block_icon@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

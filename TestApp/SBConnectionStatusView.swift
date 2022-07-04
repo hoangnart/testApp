@@ -55,12 +55,12 @@ struct SBConnectionStatusViewModel {
     
     var iconName: String {
         if item.isSecureConnection {
-            return "lockIcon"
+            return "ccbr_sb_lock_icon"
         } else
         if isNormalPage {
-            return "warningIcon"
+            return "ccbr_sb_warning_icon"
         } else {
-            return "warningRedIcon"
+            return "ccbr_sb_list_type_blackList"
         }
     }
     

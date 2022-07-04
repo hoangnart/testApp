@@ -25,7 +25,6 @@
 		FA665413286AAFE500EC4514 /* SBConnectionStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBConnectionStatusView.swift; sourceTree = "<group>"; };
 		FA925306286C4BFE00EE457F /* SBPageStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBPageStatusView.swift; sourceTree = "<group>"; };
 		FA925308286C668800EE457F /* SBPageStatusFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBPageStatusFooterView.swift; sourceTree = "<group>"; };
-		FAA6B9DD286EE8FE00D35CE1 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		FAA74FAD2834E7700047AC2B /* TestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAA74FB02834E7700047AC2B /* TestAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAppApp.swift; sourceTree = "<group>"; };
 		FAA74FB22834E7700047AC2B /* VerticalSearchSuggestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalSearchSuggestionView.swift; sourceTree = "<group>"; };
@@ -69,7 +68,6 @@
 			children = (
 				FAA74FB02834E7700047AC2B /* TestAppApp.swift */,
 				FAB109BE286441A40098B1E2 /* SafeBrowsingView.swift */,
-				FAA6B9DD286EE8FE00D35CE1 /* TestView.swift */,
 				FA59EB71286D52E50085B455 /* SBModels.swift */,
 				FA59EB73286D88B20085B455 /* String+.swift */,
 				FA925308286C668800EE457F /* SBPageStatusFooterView.swift */,

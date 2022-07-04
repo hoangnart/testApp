@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "[Button] Text.png",
+      "filename" : "ccbr_sb_list_type_whiteList.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "[Button] Text@2x.png",
+      "filename" : "ccbr_sb_list_type_whiteList@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "[Button] Text@3x.png",
+      "filename" : "ccbr_sb_list_type_whiteList@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

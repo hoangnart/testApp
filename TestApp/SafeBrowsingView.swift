@@ -96,7 +96,7 @@ struct SafeBrowsingView: View {
                                 Color.gray.opacity(0.2)
                                     .frame(width: 28, height: 28)
                                     .cornerRadius(6)
-                                Image("adblockIcon")
+                                Image("ccbr_sb_ads_block_icon")
                                     .frame(width: 20, height: 20)
                             }
                         }
@@ -131,8 +131,6 @@ struct SafeBrowsingView: View {
                     primaryButton: .destructive(Text("Ẩn cảnh báo trên trang này"), action: dismissPageStatus),
                     secondaryButton: .cancel(Text("Không ẩn cảnh báo")
                         .foregroundColor(Color.green)))
-                
-                //dismissButton: .default(Text("Không ẩn cảnh báo").foregroundColor(Color.green))
             }
         }
     }
@@ -151,7 +149,7 @@ struct SafeBrowsingView_Previews: PreviewProvider {
 
 let sampleItem = SBItem(
     url: "https://vnexpress.net/purchase/purchase/purchase/purchase/purchase/purchase",
-    imageName: "vnexpressIcon",
+    imageName: "ccbr_sb_example_vnexpress_icon",
     isSecureConnection: false,
     pageType: .paymentOrAuthenticationPage,
     containedInList: .blackList)

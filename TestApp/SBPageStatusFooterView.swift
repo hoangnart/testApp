@@ -22,7 +22,7 @@ struct SBPageStatusFooterView: View {
                             .foregroundColor(containingInList.themeColor)
                             .fontWeight(.semibold)
                     } icon: {
-                        Image("guardIcon")
+                        Image("ccbr_sb_guard_icon")
                             .frame(width: 14, height: 14)
                     }
                     .padding(6)
@@ -33,7 +33,7 @@ struct SBPageStatusFooterView: View {
                                 lineWidth: 2)
                     }
                 } else {
-                    Image("sb_verified_page")
+                    Image("ccbr_sb_verified_page_image")
                 }
             }
         } else {

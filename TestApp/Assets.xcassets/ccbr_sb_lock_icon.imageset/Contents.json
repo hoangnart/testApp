@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "adblock_loading.png",
+      "filename" : "ccbr_sb_lock_icon.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "adblock_loading@2x.png",
+      "filename" : "ccbr_sb_lock_icon@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "adblock_loading@3x.png",
+      "filename" : "ccbr_sb_lock_icon@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

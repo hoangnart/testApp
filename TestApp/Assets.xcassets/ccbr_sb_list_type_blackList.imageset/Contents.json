@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "filled.png",
+      "filename" : "ccbr_sb_list_type_blackList.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "filled@2x.png",
+      "filename" : "ccbr_sb_list_type_blackList@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "filled@3x.png",
+      "filename" : "ccbr_sb_list_type_blackList@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
