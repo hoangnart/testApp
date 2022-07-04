@@ -31,19 +31,30 @@ struct SBConnectionStatusView: View {
 
 struct SBConnectionStatusViewModel {
     
-    var pageType: SBPageType
-    var isSecureConnection: Bool
+    var item: SBItem
+    
+    var enableDismissOption: Bool {
+        let check =
+        (!item.isSecureConnection &&
+        !isNormalPage &&
+        isNotInBlackList)
+        return check
+    }
     
     var isNormalPage: Bool {
-        pageType == .normalPage
+        item.pageType == .normalPage
+    }
+    
+    var isNotInBlackList: Bool {
+        return item.containedInList != .blackList
     }
     
     var titleText: String {
-        isSecureConnection ? "Kết nối bảo mật":"Kết nối không bảo mật"
+        item.isSecureConnection ? "Kết nối bảo mật":"Kết nối không bảo mật"
     }
     
     var iconName: String {
-        if isSecureConnection {
+        if item.isSecureConnection {
             return "lockIcon"
         } else
         if isNormalPage {
@@ -54,14 +65,14 @@ struct SBConnectionStatusViewModel {
     }
     
     var labelBackgroundColor: Color {
-        if !isSecureConnection && !isNormalPage {
+        if !item.isSecureConnection && !isNormalPage {
             return Color(hex: "#CC3648").opacity(0.1)
         }
         return .white
     }
     
     var labelTextColor: Color {
-        if !isSecureConnection && !isNormalPage {
+        if !item.isSecureConnection && !isNormalPage {
             return Color(hex: "#CC3648")
         }
         return .black

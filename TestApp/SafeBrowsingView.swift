@@ -9,9 +9,6 @@ import SwiftUI
 
 struct SafeBrowsingView: View {
     @Environment(\.presentationMode) var presentationMode
-    
-    @State private var isOn = false
-    @State private var showingAlert = false
     @StateObject var pageModel: SBModel
 
     var body: some View {
@@ -51,30 +48,47 @@ struct SafeBrowsingView: View {
                             .listRowBackground(pageModel.item.containedInList.themeColor.opacity(0.1))
                     } footer: {
                         SBPageStatusFooterView(containingInList: pageModel.item.containedInList, didTapDismissText: {
-                            self.showingAlert = true
+                            pageModel.showingAlert = true
                         })
                     }
                 }
                 
                 //MARK: Connection Status View
                 if pageModel.shouldShowConnectionStatus {
+                    let connectionStatusViewModel =
+                        SBConnectionStatusViewModel(
+                            item: pageModel.item
+                        )
                     Section {
                         SBConnectionStatusView(
-                            model: SBConnectionStatusViewModel(
-                                pageType: pageModel.item.pageType,
-                                isSecureConnection: pageModel.item.isSecureConnection))
+                            model: connectionStatusViewModel
+                        )
                     } footer: {
+                        let footerText = Text("Bạn không nên nhập bất cứ thông tin nhạy cảm nào trên trang web này (ví dụ: mật khẩu hoặc thẻ tín dụng), vì những kẻ tấn công có thể đánh cắp thông tin đó.")
                         if pageModel.item.isSecureConnection {
                             EmptyView()
                         } else {
-                            Text("Bạn không nên nhập bất cứ thông tin nhạy cảm nào trên trang web này (ví dụ: mật khẩu hoặc thẻ tín dụng), vì những kẻ tấn công có thể đánh cắp thông tin đó.")
+                            if connectionStatusViewModel.enableDismissOption {
+                                Group {
+                                    footerText +
+                                    Text(" Ẩn cảnh báo này")
+                                        .foregroundColor(
+                                            connectionStatusViewModel
+                                                .labelTextColor)
+                                }
+                                .onTapGesture {
+                                    pageModel.showingAlert = true
+                                }
+                            } else {
+                                footerText
+                            }
                         }
                     }
                 }
                 
                 //MARK: Ads Block
                 Section {
-                    Toggle(isOn: $isOn) {
+                    Toggle(isOn: $pageModel.isAdsBlockOn) {
                         Label {
                             Text("Chặn quảng cáo trang")
                         } icon: {
@@ -110,17 +124,22 @@ struct SafeBrowsingView: View {
                         }
                     )
             )
-            .alert(isPresented: $showingAlert) {
+            .alert(isPresented: $pageModel.showingAlert) {
                 Alert(
                     title: Text("Bạn có muốn ẩn cảnh báo trên trang này?"),
                     message: Text("Nếu bạn chọn ẩn cảnh báo, chúng tôi sẽ không hiện lại cảnh báo trên trang web này nữa."),
-                    primaryButton: .destructive(Text("Ẩn cảnh báo trên trang này")),
+                    primaryButton: .destructive(Text("Ẩn cảnh báo trên trang này"), action: dismissPageStatus),
                     secondaryButton: .cancel(Text("Không ẩn cảnh báo")
                         .foregroundColor(Color.green)))
                 
                 //dismissButton: .default(Text("Không ẩn cảnh báo").foregroundColor(Color.green))
             }
         }
+    }
+    
+    //TODO: dismissPageStatus
+    func dismissPageStatus() {
+        print("TODO: dismissPageStatus")
     }
 }
 
@@ -133,16 +152,18 @@ struct SafeBrowsingView_Previews: PreviewProvider {
 let sampleItem = SBItem(
     url: "https://vnexpress.net/purchase/purchase/purchase/purchase/purchase/purchase",
     imageName: "vnexpressIcon",
-    isSecureConnection: true,
+    isSecureConnection: false,
     pageType: .paymentOrAuthenticationPage,
     containedInList: .blackList)
 
 
-
-
 class SBModel: ObservableObject {
-    var item: SBItem
+    
     @Published var shouldShowFullUrl: Bool
+    @Published var showingAlert = false
+    @Published var isAdsBlockOn = false //TODO: get this value from remote
+    
+    var item: SBItem
     
     var headerTitle: String {
         item.url.getDomainName() ?? ""
@@ -162,6 +183,8 @@ class SBModel: ObservableObject {
     }
     
     var shouldShowPageStatus: Bool {
+        //TODO: check if user have dimiss PageStatus warning for this DOMAIN
+        
         if (item.pageType == .paymentOrAuthenticationPage &&
             item.containedInList == .whiteList &&
             item.isSecureConnection) ||
@@ -172,6 +195,8 @@ class SBModel: ObservableObject {
     }
     
     var shouldShowConnectionStatus: Bool {
+        //TODO: check if user have dimiss ConnectionStatus warning for this DOMAIN
+        
         if item.containedInList == .blackList && item.isSecureConnection {
             return false
         } else {
